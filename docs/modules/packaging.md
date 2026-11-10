@@ -53,6 +53,8 @@ For a Windows installer smoke, install to a path containing spaces, rerun Setup 
 
 The 2026-11-10 destination check used Inno Setup 6.7.3 and Wine 11.0 with a minimal payload. The old wizard skipped the page; the revised wizard passed the directory, in-place upgrade, wrong-path rejection, and uninstall/reinstall checks above. This did not build or test the full desktop payload on native Windows. A separate macOS smoke mounted the drag-install DMG layout and verified and launched an ad-hoc signed test app copied into a custom folder with spaces.
 
+The Windows acceptance branch adds a manual build check for the released installer, rebuilt payload and live requests from the installed backend.
+
 ## Public build interface
 
 `python packaging/build.py --archive-version vX.Y.Z-x64` (use `-arm64` for an Apple Silicon native build) accepts:

@@ -255,6 +255,20 @@ jobs:
         run: |
           & "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe" /DMyAppVersion=${{ steps.ver.outputs.bare }} /DMyAppVersionInfoVersion=${{ steps.ver.outputs.version_info }} packaging\openbiliclaw.iss
 
+      - name: Verify full installers on native Windows with live HTTP
+        shell: pwsh
+        run: |
+          $setup = (Get-ChildItem "dist\release\*.exe" | Select-Object -First 1).FullName
+          python -u scripts/windows_installer_destination_e2e.py "$setup"
+
+      - name: Preserve native Windows acceptance evidence
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: installer-destination-evidence
+          path: ${{ runner.temp }}/installer destination acceptance/evidence.json
+          if-no-files-found: ignore
+
       - name: Install and test the actual Windows installer
         shell: pwsh
         run: |
