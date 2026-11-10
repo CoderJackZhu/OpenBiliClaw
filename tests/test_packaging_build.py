@@ -730,7 +730,7 @@ def test_notarized_dmg_uses_drag_install_without_gatekeeper_bypass(tmp_path, mon
         stage = Path(cmd[cmd.index("-srcfolder") + 1])
         guide = (stage / build_module.MACOS_FIRST_LAUNCH_GUIDE_NAME).read_text()
         assert "Apple 公证" in guide
-        assert "Applications" in guide
+        assert "Applications or another writable folder in Finder" in guide
         assert "xattr" not in guide and "仍要打开" not in guide
         assert not (stage / build_module.MACOS_INSTALLER_COMMAND_NAME).exists()
         assert not (stage / build_module.MACOS_FIRST_LAUNCH_IMAGE_NAME).exists()

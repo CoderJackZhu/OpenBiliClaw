@@ -699,9 +699,12 @@ def make_macos_dmg(
                 "<title>OpenBiliClaw 安装</title><h1>安装 OpenBiliClaw</h1>"
                 "<p>本应用已通过 Developer ID 签名与 Apple 公证。</p>"
                 "<ol><li>升级前先从菜单栏退出旧版本。</li>"
-                "<li>将 OpenBiliClaw 拖到 Applications，升级时确认替换。</li>"
-                "<li>从 Applications 打开 OpenBiliClaw。</li></ol>"
-                "<p>Quit the old version, drag OpenBiliClaw to Applications, then launch it.</p>"
+                "<li>将 OpenBiliClaw 拖到 Applications，或用 Finder 拖到其他可写目录。"
+                "升级时请在原安装目录替换旧应用。</li>"
+                "<li>从所选目录打开 OpenBiliClaw。</li></ol>"
+                "<p>Quit the old version, drag OpenBiliClaw to Applications or another writable "
+                "folder in Finder, then open it there. For upgrades, replace the app in its "
+                "existing folder.</p>"
                 "<p>用户数据保留在 ~/OpenBiliClaw。User data is preserved.</p></html>",
                 encoding="utf-8",
             )
